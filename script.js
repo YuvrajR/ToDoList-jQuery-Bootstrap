@@ -1,7 +1,9 @@
 let ulTasks = $("#ulTasks")
 let inpNewTask = $("#inpNewTask")
 let btnAdd = $("#btnAdd")
-let btnClear = $("#btnClear")
+let btnReset = $("#btnReset")
+let btnCleanup = $('#btnCleanup')
+let btnSort = $('#btnSort')
 
 function addItem(){
     let listItem = $('<li>',{
@@ -18,6 +20,9 @@ function addItem(){
     });
 }
 
+function clearDone(){
+    $('#ulTasks .done').remove()
+}
 
 inpNewTask.keypress((e) =>{
      if(e.which == 13) addItem();
@@ -25,6 +30,11 @@ inpNewTask.keypress((e) =>{
 
 btnAdd.click(addItem)
 
-btnClear.click(() => {
+btnReset.click(() => {
     inpNewTask.val("")
+})
+
+btnCleanup.click(clearDone)
+btnSort.click(() =>{
+    $('#ulTasks .done').appendTo(ulTasks)
 })
