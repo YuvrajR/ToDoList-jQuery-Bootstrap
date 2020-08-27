@@ -4,6 +4,16 @@ let btnAdd = $("#btnAdd")
 let btnClear = $("#btnClear")
 
 btnAdd.click(() => {
-    console.log(inpNewTask.val())
+    let listItem = $('<li>',{
+        'class' : 'list-group-item',
+        text : inpNewTask.val()
+    })
+    if(inpNewTask.val() != ""){
+        ulTasks.append(listItem)
+    }
+    inpNewTask.val("")
+})
+
+btnClear.click(() => {
     inpNewTask.val("")
 })
