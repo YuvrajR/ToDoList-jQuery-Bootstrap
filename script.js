@@ -12,6 +12,10 @@ btnAdd.click(() => {
         ulTasks.append(listItem)
     }
     inpNewTask.val("")
+
+    listItem.click(() => {
+        listItem.toggleClass('done')
+    })
 })
 
 btnClear.click(() => {
