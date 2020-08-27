@@ -17,22 +17,28 @@
         <h1 align = "center">Todo List</h1>
         <!-- Input Box-->
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="form-group">
                     <label for="inpNewTask">New Task</label>
                     <input type="text" class="form-control" id="inpNewTask" aria-describedby="newTaskHelp">
                     <small id="newTaskHelp" class="form-text text-muted">A short description of your task.</small>
                   </div>
             </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <button class="btn btn-success m-2 col" id="btnAdd"><i class="fas fa-plus-square"></i> Add </button>
-                    <button class="btn btn-danger m-2 col" id="btnClear"><i class="fas fa-backspace"></i> Reset</button>
+            <div class="col-md-5 row">
+
+                <div class="col-6 col-sm-3 col-md-6 p-1">
+                    <button class="btn btn-success col" id="btnAdd"><i class="fas fa-plus-square"></i> Add </button>
                 </div>
-                <div class="row">
-                    <button class="btn btn-info m-2 col" id="btnSort"><i class="fas fa-sort-amount-down"></i> Sort </button>
-                    <button class="btn btn-warning m-2 col" id="btnCleanup"><i class="fas fa-trash-alt"></i> Cleanup</button>
+                <div class="col-6 col-sm-3 col-md-6 p-1">
+                    <button class="btn btn-danger col" id="btnClear"><i class="fas fa-backspace"></i> Reset</button>
                 </div>
+                <div class="col-6 col-sm-3 col-md-6 p-1">
+                    <button class="btn btn-info col" id="btnSort"><i class="fas fa-sort-amount-down"></i> Sort </button>
+                </div>
+                <div class="col-6 col-sm-3 col-md-6 p-1">
+                    <button class="btn btn-warning col" id="btnCleanup"><i class="fas fa-trash-alt"></i> Cleanup</button>
+                </div>
+
             </div>
         </div>
 
