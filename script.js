@@ -18,6 +18,7 @@ function addItem(){
     listItem.click(() => {
         listItem.toggleClass('done')
     });
+    toggleUtilBtn()
 }
 
 function clearDone(){
@@ -25,16 +26,48 @@ function clearDone(){
 }
 
 inpNewTask.keypress((e) =>{
-     if(e.which == 13) addItem();
+    if(e.which == 13) addItem();
+    toggleAddBtn()
+    toggleResetBtn()
 })
 
-btnAdd.click(addItem)
+function toggleUtilBtn(){
+    btnSort.prop('disabled', ulTasks.children().length <1)
+    btnCleanup.prop('disabled', ulTasks.children().length <1)
+}
+
+function toggleResetBtn(enabled){
+    if(enabled) btnReset.prop('disabled', false)
+    else btnReset.prop('disabled', true)
+}
+
+function toggleAddBtn(enabled){
+    if(enabled) btnAdd.prop('disabled', false)
+    else btnAdd.prop('disabled', true)
+}
+
+inpNewTask.on('input', () =>{
+    toggleResetBtn(inpNewTask.val() != "")
+    toggleAddBtn(inpNewTask.val()!="")
+})
+
+btnAdd.click(() =>{
+    addItem()
+    toggleAddBtn()
+    toggleResetBtn()
+})
 
 btnReset.click(() => {
     inpNewTask.val("")
+    toggleResetBtn()
+    toggleAddBtn()
 })
 
-btnCleanup.click(clearDone)
+btnCleanup.click(() =>{
+    clearDone()
+    toggleUtilBtn()
+})
+
 btnSort.click(() =>{
     $('#ulTasks .done').appendTo(ulTasks)
 })
